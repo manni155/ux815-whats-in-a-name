@@ -5,18 +5,9 @@ title: JavaScript Demo UX815
 
 <h1>Alpine.js <strong>Demo </strong>UX 815</h1>
 <img alt="pine" src="/images/pine.png" width="50" />
-
 <div x-data="{names: ['Thom', 'Jeff', 'Aimee', 'Steve', 'Jack', 'Anna', 'Parker', 'Marshall', 'Kaylee', 'Krista']}">
-    <button @click="randInt = namepicker(0, 9), +randInt, alert(names[randInt])">Click me!</button>
-    <h1 x-text="names[randInt]"></h1>
+    <div x-data="{ nameFinal : 'Awaiting name...' }">
+        <button @click="randInt = namepicker(0, 9), nameFinal = names[randInt]">Click me!</button>
+        <h1 x-text="nameFinal"></h1>
+    </div>
 </div>
-
-<script>
-let randInt;
-
-function namepicker(min, max) {
-   return Math.floor(Math.random() * (max - min) + min);
-
-namepicker(0, 9);
-}
-</script>
